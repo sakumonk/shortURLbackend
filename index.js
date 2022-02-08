@@ -14,7 +14,7 @@ db.connect();
 app.post("/", async (req, res) => {
     const { url, short } = req.body;
     const data = await urls.create({url, short});
-    res.send(`http://localhost:${port}/${short}`);
+    res.send(`https://sakuurlshortener.herokuapp.com/${short}`);
 });
 
 app.get("/:short", async (req, res) => {

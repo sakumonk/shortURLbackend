@@ -5,8 +5,13 @@ const URL = require("../model/URL");
 class URLDao {
 
   async create({ url, short }) {
-    const url1 = await URL.create({ url, short });
-    return url1;
+    try{
+      const url1 = await URL.create({ url, short });
+      return url1;
+    } catch(err) {
+      return "fail";
+    }
+    
   }
 
 

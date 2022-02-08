@@ -6,6 +6,9 @@ const db = require("./data/db");
 
 const app = express();
 app.use(express.json());
+var cors = require('cors')
+
+app.use(cors()) // Use this after the variable declaration
 const port = process.env.PORT || 5050;
 
 const urls = new URLDao();

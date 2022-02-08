@@ -17,8 +17,13 @@ db.connect();
 app.post("/", async (req, res) => {
     const { url, short } = req.body;
     const data = await urls.create({url, short});
-    res.set("Access-Control-Allow-Origin", "*");
-    res.send(`https://sakuurlshortener.herokuapp.com/${short}`);
+    if (data === "fail") {
+        res.set("Access-Control-Allow-Origin", "*");
+        res.send(`Fail`);
+    } else {
+        res.set("Access-Control-Allow-Origin", "*");
+        res.send(`https://sakuurlshortener.herokuapp.com/${short}`);
+    }
 });
 
 app.get("/:short", async (req, res) => {

@@ -19,7 +19,7 @@ app.post("/", async (req, res) => {
     const data = await urls.create({url, short});
     if (data === "fail") {
         res.set("Access-Control-Allow-Origin", "*");
-        res.send(`Fail`);
+        res.send(`Fail: Please Choose Another Shorcut`);
     } else {
         res.set("Access-Control-Allow-Origin", "*");
         res.send(`https://sakuurlshortener.herokuapp.com/${short}`);

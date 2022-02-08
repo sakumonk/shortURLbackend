@@ -17,7 +17,7 @@ db.connect();
 app.post("/", async (req, res) => {
     const { url, short } = req.body;
     const data = await urls.create({url, short});
-    res.set("Access-Control-Allow-Origin", "http://localhost:3000/");
+    res.set("Access-Control-Allow-Origin", "*");
     res.send(`https://sakuurlshortener.herokuapp.com/${short}`);
 });
 
